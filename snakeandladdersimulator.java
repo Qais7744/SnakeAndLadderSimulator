@@ -12,6 +12,7 @@ public class snakeandladdersimulator {
 				// Variables
 				int startPlayer = 0;
 				int previousPosition;
+				int counter = 0;
 				while(true) {
 					int name = (int)(Math.random() * 3 );
 						System.out.println("the snake ladder "+name);
@@ -32,7 +33,10 @@ public class snakeandladdersimulator {
 						startPlayer = startPlayer;
 						if ( startPlayer == 100 )
 							break;
+				counter++;
+				System.out.println("The Position of The Player: " +startPlayer);
 				}
+					System.out.println("The Total Number of dice counted: " +counter);
 					return startPlayer;
 		}
 }
