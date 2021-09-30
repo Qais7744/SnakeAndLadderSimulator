@@ -2,6 +2,7 @@ package SnakeAndLadderSimulator;
 
 public class snakeandladdersimulator {
 	public static void main(String[] args) {
-		System.out.println("Player Position is Zero ");
+		int dice = (int) Math.floor(Math.random() * 6 + 1);
+		System.out.println("Dice Number is " + dice);
 	}
 }
