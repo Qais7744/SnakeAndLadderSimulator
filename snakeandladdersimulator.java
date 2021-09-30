@@ -2,30 +2,37 @@ package SnakeAndLadderSimulator;
 
 public class snakeandladdersimulator {
 	public static void main(String[] args) {
+		int playerPosition = playingLadderAndSnake();
+			System.out.println("The Player Position is: " + playerPosition);
+}
+			static int playingLadderAndSnake() {
 				// Constant
 				int LADDER = 1;
 				int SNAKE = 2;
-				// Variable
-				double playerMovesAhead, playerMovesBehind;
-					int startingPosition = 0;
-						System.out.println("The Player Position is: " + startingPosition);
-				int diceNumber = (int) (((Math.random() * 10) % 6) + 1);
-					System.out.println("The Dice Number is: " + diceNumber);
-				int name = (int) ((Math.random() * 10) % 3);
-					System.out.println("The name is " + name);
-				// if Condition
-				if (name == LADDER)	{
-						playerMovesAhead = (diceNumber + startingPosition);
-						System.out.println("The Player will Moves Forword Positions " + playerMovesAhead);
+				// Variables
+				int startPlayer = 0;
+				int previousPosition;
+				while(true) {
+					int name = (int)(Math.random() * 3 );
+						System.out.println("the snake ladder "+name);
+					int diceNumber = (int)( (Math.random() * 6 ) + 1 );
+						System.out.println("the dice value is "+diceNumber);			
+					if ( name == LADDER ) {
+						previousPosition = startPlayer; 
+						startPlayer= startPlayer + diceNumber;
+						if ( startPlayer > 100 )
+							startPlayer = previousPosition;
+					}
+					else if ( name == SNAKE) {
+						startPlayer = startPlayer - diceNumber;
+						if ( startPlayer < 0 )
+							startPlayer = 0;
+					}
+					else 
+						startPlayer = startPlayer;
+						if ( startPlayer == 100 )
+							break;
 				}
-						else if (name == SNAKE)	{
-							playerMovesBehind = (diceNumber - startingPosition);
-							System.out.println("The Player Moves Backward Position " + playerMovesBehind);
-						}
-						else
-							System.out.println("There is No_Play and Player will Stay at the same place" );
-				
-				
-			
+					return startPlayer;
 		}
 }
